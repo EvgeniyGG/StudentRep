@@ -1,10 +1,9 @@
-package MyCollections;
+package myCollections;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.swing.text.html.HTMLDocument;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -14,7 +13,7 @@ import java.util.Random;
 public class LinkedHashSetTest {
 
     private LinkedHashSet<String> actual;
-    private MyCollections.LinkedHashSet<String> col;
+    private myCollections.LinkedHashSet<String> col;
     private LinkedList<String> lst;
     private LinkedList<String> otherLst;
     String smthString;
@@ -22,7 +21,7 @@ public class LinkedHashSetTest {
     public void setUp()
     {
         actual = new LinkedHashSet<>();
-        col = new MyCollections.LinkedHashSet<>();
+        col = new myCollections.LinkedHashSet<>();
         lst = new LinkedList<>();
         otherLst = new LinkedList<>();
 
