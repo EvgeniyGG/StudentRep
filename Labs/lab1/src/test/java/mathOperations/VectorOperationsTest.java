@@ -1,15 +1,11 @@
-package MathOperations;
+package mathOperations;
 
 import org.apache.commons.math3.linear.ArrayRealVector;
 import org.apache.commons.math3.linear.RealVector;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.Random;
-
-import static org.junit.Assert.*;
 
 public class VectorOperationsTest {
 
@@ -45,7 +41,7 @@ public class VectorOperationsTest {
             randomDoubleInit(vectors2[i]);
 
             Assert.assertEquals(vectors1[i].dotProduct(vectors2[i]),
-                    MathOperations.VectorOperations.dotProduct(vectors1[i], vectors2[i]), EPS);
+                    mathOperations.VectorOperations.dotProduct(vectors1[i], vectors2[i]), EPS);
         }
     }
 
