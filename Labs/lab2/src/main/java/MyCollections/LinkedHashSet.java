@@ -3,7 +3,7 @@ package MyCollections;
 import java.util.*;
 
 
-public class LinkedHashSet<T> implements Set<T> {
+public class LinkedHashSet<T> implements Set<T>, Iterable<T> {
    final private int PRESENT = 1;
    HashTable<Integer, T> hashTable;
    LinkedList<T> lst;
