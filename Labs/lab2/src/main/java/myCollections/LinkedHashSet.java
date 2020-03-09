@@ -1,9 +1,9 @@
-package MyCollections;
+package myCollections;
 
 import java.util.*;
 
 
-public class LinkedHashSet<T> implements Set<T>, Iterable<T> {
+public class LinkedHashSet<T> implements Set<T>, Iterable<T>{
    final private int PRESENT = 1;
    HashTable<Integer, T> hashTable;
    LinkedList<T> lst;
@@ -50,7 +50,7 @@ public class LinkedHashSet<T> implements Set<T>, Iterable<T> {
                 if(nextWasUsed)
                 {
                     lst.remove(currentInd);
-                    hashTable.remove(PRESENT, lst.get(currentInd));
+                    hashTable.remove(lst.get(currentInd));
                     nextWasUsed = false;
                 }
                 else
@@ -92,7 +92,7 @@ public class LinkedHashSet<T> implements Set<T>, Iterable<T> {
        if(hashTable.contains((T)o))
        {
            lst.remove(o);
-           hashTable.remove(PRESENT, (T)o);
+           hashTable.remove((T)o);
            return true;
        }
        else
@@ -142,7 +142,7 @@ public class LinkedHashSet<T> implements Set<T>, Iterable<T> {
 
         for(Object item: collection)
         {
-            hashTable.remove(PRESENT, (T)item);
+            hashTable.remove((T)item);
             lst.remove(item);
         }
         return true;

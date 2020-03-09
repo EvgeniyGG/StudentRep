@@ -1,4 +1,4 @@
-package MyCollections;
+package myCollections;
 
 import java.util.ArrayList;
 
@@ -72,7 +72,7 @@ class HashTable <T1, T2> {
         }
         hashTable = newHashTable;
     }
-    void add(T1 data, T2 key)
+    public void add(T1 data, T2 key)
     {
         int hash = 0;
         if(_capacity * loadCoef < _size + 1)
@@ -83,7 +83,7 @@ class HashTable <T1, T2> {
         _size++;
     }
 
-    void remove(T1 data, T2 key)
+    public void remove(T2 key)
     {
         int hash = hashFunc(key);
 
@@ -112,7 +112,7 @@ class HashTable <T1, T2> {
         return false;
     }
 
-    int size()
+    public int size()
     {
         return _size;
     }
