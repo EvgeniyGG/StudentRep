@@ -9,7 +9,7 @@ public class ServiceQueue {
     private LinkedList<Client> threadBuff, queue;
     private int _maxClientId;
     private volatile int currentClientId = 1;
-    private static volatile int numberOfClients = 0;
+    private volatile int numberOfClients = 0;
     private volatile int numberOfServedClients = 0;
     private LinkedList<Thread> threads;
     private static volatile boolean  isRunning = true;
