@@ -20,20 +20,21 @@ public class SLAESolution extends Thread {
 
     public void run()
     {
-     
-        double multCoef;;
-        for(int i = 0; i < numRowsForThisThread; i++)
+        if(true)
         {
-            multCoef = matrixA[changingRowNumber + i][baseRowNumber] / matrixA[baseRowNumber][baseRowNumber];
-            for (int k = 0; k < matrixA[0].length; k++)
-                matrixA[changingRowNumber + i][k] -= multCoef * matrixA[baseRowNumber][k];
-            colB[changingRowNumber + i] -= multCoef * colB[baseRowNumber];
-        }
+            double multCoef;;
+            for(int i = 0; i < numRowsForThisThread; i++)
+            {
+                multCoef = matrixA[changingRowNumber + i][baseRowNumber] / matrixA[baseRowNumber][baseRowNumber];
+                for (int k = 0; k < matrixA[0].length; k++)
+                    matrixA[changingRowNumber + i][k] -= multCoef * matrixA[baseRowNumber][k];
+                colB[changingRowNumber + i] -= multCoef * colB[baseRowNumber];
+            }
 
-        
+        }
     }
 
-    public static void solveSLAE(double [][]A, double []B, double []X, int threadNumber) throws InterruptedException {
+    public static double[] solveSLAE(double [][]A, double []B, double []X, int threadNumber) throws InterruptedException {
         if(checkCorrect(A, B, X))
         {
             ////FORWARD ELIMINATION
@@ -59,11 +60,11 @@ public class SLAESolution extends Thread {
                     thread.join();
             }
             backSubstitution(A, B, X);
-            return;
+            return null;
         }
 
         System.out.println("Incorrect input");
-        return;
+        return null;
     }
 
     private static void backSubstitution(double [][]A, double []B, double []X)
@@ -100,5 +101,7 @@ public class SLAESolution extends Thread {
         else
             return true;
     }
+
+
 
 }

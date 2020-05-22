@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Random;
 import java.util.Scanner;
 
 public class SLAESolutionTests {
@@ -94,6 +95,42 @@ public class SLAESolutionTests {
         {
             if(Math.abs(X[i] - expectedX[i]) > eps)
                 return false;
+        }
+        return true;
+    }
+
+    @Test
+    public void test100x100() throws InterruptedException {
+        int size = 700;
+        double [][]matrixA = new double[size][size];
+        double []colB = new double[size];
+        double []X = new double[size];
+
+        for(int i = 0; i < size; i++)
+        {
+            for(int j = 0; j < size; j++)
+                matrixA[i][j] = new Random().nextInt(100);
+            colB[i] = new Random().nextInt(100);
+        }
+
+        SLAESolution.solveSLAE(matrixA, colB, X, new Random().nextInt(100));
+        Assert.assertTrue(checkDiff(matrixA, colB, X));
+    }
+
+    private static boolean checkDiff(double [][]A, double []B, double []X)
+    {
+        double err = 0;
+        double eps = 1E-5;
+        for(int i = 0; i < A.length; i++)
+        {
+            for(int j = 0; j < A.length; j++)
+            {
+                err += A[i][j] * X[j];
+            }
+            err = Math.abs(B[i] - err);
+            if(err > eps)
+                return false;
+            err = 0;
         }
         return true;
     }
