@@ -20,18 +20,16 @@ public class SLAESolution extends Thread {
 
     public void run()
     {
-        if(true)
-        {
-            double multCoef;;
-            for(int i = 0; i < numRowsForThisThread; i++)
-            {
-                multCoef = matrixA[changingRowNumber + i][baseRowNumber] / matrixA[baseRowNumber][baseRowNumber];
-                for (int k = 0; k < matrixA[0].length; k++)
-                    matrixA[changingRowNumber + i][k] -= multCoef * matrixA[baseRowNumber][k];
-                colB[changingRowNumber + i] -= multCoef * colB[baseRowNumber];
-            }
 
+        double multCoef;;
+        for(int i = 0; i < numRowsForThisThread; i++)
+        {
+            multCoef = matrixA[changingRowNumber + i][baseRowNumber] / matrixA[baseRowNumber][baseRowNumber];
+            for (int k = 0; k < matrixA[0].length; k++)
+                matrixA[changingRowNumber + i][k] -= multCoef * matrixA[baseRowNumber][k];
+            colB[changingRowNumber + i] -= multCoef * colB[baseRowNumber];
         }
+
     }
 
     public static double[] solveSLAE(double [][]A, double []B, double []X, int threadNumber) throws InterruptedException {
